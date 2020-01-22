@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1,  maximum-scale=1.0, user-scalable=no, user-scalable=0"/>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="apple-mobile-web-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar" content="black"/>
+    <link rel="stylesheet" type="text/css" href="private/styles/css/jquery-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="private/styles/css/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" type="text/css" href="private/styles/css/rangeslider.css"/>
+    <link rel="stylesheet" type="text/css" href="private/styles/css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="private/styles/css/help.css"/>
+    <link rel="stylesheet" type="text/css" href="private/styles/css/wheelPicker.css"/>
+</head>
+<body>
+<div id="cover" class="cover-background"></div>
+<div id="main" data-role="page" data-theme="b" class="frame frame-background" style="visibility:hidden">
+    <a id="soundDialog" href="#activateSound" data-rel="popup" style="display:none" data-position-to="#canvas">Sound?</a>
+    <a id="inactivityDialog" href="#inactivity" data-rel="popup" style="display:none" data-position-to="#canvas">Sound?</a>
+    <a id="closeGameDialog" href="#close-game-pop-up" data-rel="popup" style="display:none" data-position-to="#canvas">Sound?</a>
+    <a id="turbospinDialog" href="#turbospin-pop-up" data-rel="popup" style="display:none" data-position-to="#canvas">Sound?</a>
+    <div id='activateSound' data-dismissible="false" data-role="popup"
+         style="max-width:100%; min-width: 80%; margin: 0% auto;" data-theme="b" data-overlay-theme="b" data-history="false"
+         data-transition="none" data-position-to="main">
+        <h2 style="text-align: center;width:100%" translatable="activate_sound">Activate Sound?</h2>
+        <ul style="width:95%;margin:0 auto;list-style-type: none;padding: 0;margin-bottom: 1em">
+            <li>
+                <a class="sfxBtn" href="#" id="soundOn" data-theme="b" data-rel="back" data-role="button" translatable="button_yes">Yes</a>
+            </li>
+            <li>
+                <a class="sfxBtn" href="#" id="soundOff" data-theme="b" data-rel="back" data-role="button" translatable="button_no">No</a>
+            </li>
+        </ul>
+    </div>
+    <div id='inactivity' data-dismissible="false" data-role="popup"
+        style="max-width:100%; min-width: 80%; margin: 0% auto;" data-theme="b" data-overlay-theme="b" data-history="false"
+        data-transition="none" data-position-to="main">
+        <h2 style="text-align: center;width:100%" translatable="error.inactive">Do you want to continue?</h2>
+        <p id="inactivity-time-left"></p>
+        <ul style="width:95%;margin:0 auto;list-style-type: none;padding: 0;margin-bottom: 1em">
+            <li>
+                <a class="sfxBtn" href="#" id="inactivity_yes" data-theme="b" data-rel="back" data-role="button" translatable="button_yes">Yes</a>
+            </li>
+            <li>
+                <a class="sfxBtn" href="#" id="inactivity_no" data-theme="b" data-rel="back" data-role="button" translatable="button_no">No</a>
+            </li>
+        </ul>
+    </div>
+    <div id='close-game-pop-up' data-dismissible="false" data-role="popup"
+         style="max-width:100%; min-width: 80%; margin: 0% auto;" data-theme="b" data-overlay-theme="b" data-history="false"
+         data-transition="none" data-position-to="main">
+        <h2 style="text-align: center;width:100%" translatable="openGameCloseConfirmation.body">Activate Sound?</h2>
+        <ul style="width:95%;margin:0 auto;list-style-type: none;padding: 0;margin-bottom: 1em">
+            <li>
+                <a class="sfxBtn" href="#" id="close-game-pop-up-yes" data-theme="b" data-rel="back" data-role="button" translatable="button_yes">Yes</a>
+            </li>
+            <li>
+                <a class="sfxBtn" href="#" id="close-game-pop-up-no" data-theme="b" data-rel="back" data-role="button" translatable="button_no">No</a>
+            </li>
+        </ul>
+    </div>
+    <div id='turbospin-pop-up' data-dismissible="false" data-role="popup"
+         style="max-width:100%; min-width: 80%; margin: 0% auto;" data-theme="b" data-overlay-theme="b" data-history="false"
+         data-transition="none" data-position-to="main">
+        <h2 style="text-align: center;width:100%" translatable="activate_turbospin">Activate Sound?</h2>
+        <ul style="width:95%;margin:0 auto;list-style-type: none;padding: 0;margin-bottom: 1em">
+            <li>
+                <a class="sfxBtn" href="#" id="turbospin-pop-up-yes" data-theme="b" data-rel="back" data-role="button" translatable="button_yes">Yes</a>
+            </li>
+            <li>
+                <a class="sfxBtn" href="#" id="turbospin-pop-up-no" data-theme="b" data-rel="back" data-role="button" translatable="button_no">No</a>
+            </li>
+        </ul>
+    </div>
+    <div id="header" style="position: absolute;width:100%;z-index: 10">
+    </div>
+    <div id="game-controls" style="position: static;float:right; list-style-type: none;width:13%;z-index:100"></div>
+    <div id="support-game-controls" style="position: static;float:left; list-style-type: none;width:13%;z-index:100"></div>
+    <div id="game-layer">
+        <div id="display-layer">
+            <div id="freegame-counter" class="freegame-counter"></div>
+            <div id="freegame-display" class="display-bg"></div>
+            <div id="summary-display" class="display-bg"></div>
+        </div>
+        <div class="riskladder-page" id="riskladder-page">
+            <div id="riskladder-container" class="riskladder-container"></div>
+        </div>
+    </div>
+    <div class="riskladder-page" id="orientationHint" style="display: none;z-index:10000;">
+        <div id="orientationHint-container" class="riskladder-container" >
+            <img src="private/de/adp/web/assets/misc/rotation2.png" style="width:100%;top:50%;transform:translateY(50%);">
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="private/scripts/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="private/scripts/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="private/scripts/rangeslider.min.js"></script>
+<script type="text/javascript" src="private/scripts/webgl-2d.js"></script>
+<script type="text/javascript" src="private/scripts/howler1.1.26.js"></script>
+<script type="text/javascript" src="core/gamblingMachineApi.js"></script>
+<script type='text/javascript' src='private/extra10liner-mobile.min.js'></script>
+ 
+<script type="text/javascript" src="private/scripts/finder.js"></script>
+<script type="text/javascript" src="private/scripts/intercom.js"></script>
+<script type="text/javascript">
+    (function($) {
+        function isDOMAttrModifiedSupported() {
+            var p = document.createElement('p');
+            var flag = false;
+
+            if (p.addEventListener) {
+                p.addEventListener('DOMAttrModified', function() {
+                    flag = true
+                }, false);
+            } else if (p.attachEvent) {
+                p.attachEvent('onDOMAttrModified', function() {
+                    flag = true
+                });
+            } else { return false; }
+            p.setAttribute('id', 'target');
+            return flag;
+        }
+
+        function checkAttributes(chkAttr, e) {
+            if (chkAttr) {
+                var attributes = this.data('attr-old-value');
+
+                if (e.attributeName.indexOf('style') >= 0) {
+                    if (!attributes['style'])
+                        attributes['style'] = {}; //initialize
+                    var keys = e.attributeName.split('.');
+                    e.attributeName = keys[0];
+                    e.oldValue = attributes['style'][keys[1]]; //old value
+                    e.newValue = keys[1] + ':'
+                            + this.prop("style")[$.camelCase(keys[1])]; //new value
+                    attributes['style'][keys[1]] = e.newValue;
+                } else {
+                    e.oldValue = attributes[e.attributeName];
+                    e.newValue = this.attr(e.attributeName);
+                    attributes[e.attributeName] = e.newValue;
+                }
+
+                this.data('attr-old-value', attributes); //update the old value object
+            }
+        }
+
+        //initialize Mutation Observer
+        var MutationObserver = window.MutationObserver
+                || window.WebKitMutationObserver;
+
+        $.fn.attrchange = function(a, b) {
+            if (typeof a == 'object') {//core
+                var cfg = {
+                    trackValues : false,
+                    callback : $.noop
+                };
+                //backward compatibility
+                if (typeof a === "function") { cfg.callback = a; } else { $.extend(cfg, a); }
+
+                if (cfg.trackValues) { //get attributes old value
+                    this.each(function(i, el) {
+                        var attributes = {};
+                        for ( var attr, i = 0, attrs = el.attributes, l = attrs.length; i < l; i++) {
+                            attr = attrs.item(i);
+                            attributes[attr.nodeName] = attr.value;
+                        }
+                        $(this).data('attr-old-value', attributes);
+                    });
+                }
+
+                if (MutationObserver) { //Modern Browsers supporting MutationObserver
+                    var mOptions = {
+                        subtree : false,
+                        attributes : true,
+                        attributeOldValue : cfg.trackValues
+                    };
+                    var observer = new MutationObserver(function(mutations) {
+                        mutations.forEach(function(e) {
+                            var _this = e.target;
+                            //get new value if trackValues is true
+                            if (cfg.trackValues) {
+                                e.newValue = $(_this).attr(e.attributeName);
+                            }
+                            if ($(_this).data('attrchange-status') === 'connected') { //execute if connected
+                                cfg.callback.call(_this, e);
+                            }
+                        });
+                    });
+
+                    return this.data('attrchange-method', 'Mutation Observer').data('attrchange-status', 'connected')
+                            .data('attrchange-obs', observer).each(function() {
+                                observer.observe(this, mOptions);
+                            });
+                } else if (isDOMAttrModifiedSupported()) { //Opera
+                    //Good old Mutation Events
+                    return this.data('attrchange-method', 'DOMAttrModified').data('attrchange-status', 'connected').on('DOMAttrModified', function(event) {
+                        if (event.originalEvent) { event = event.originalEvent; }//jQuery normalization is not required
+                        event.attributeName = event.attrName; //property names to be consistent with MutationObserver
+                        event.oldValue = event.prevValue; //property names to be consistent with MutationObserver
+                        if ($(this).data('attrchange-status') === 'connected') { //disconnected logically
+                            cfg.callback.call(this, event);
+                        }
+                    });
+                } else if ('onpropertychange' in document.body) { //works only in IE
+                    return this.data('attrchange-method', 'propertychange').data('attrchange-status', 'connected').on('propertychange', function(e) {
+                        e.attributeName = window.event.propertyName;
+                        //to set the attr old value
+                        checkAttributes.call($(this), cfg.trackValues, e);
+                        if ($(this).data('attrchange-status') === 'connected') { //disconnected logically
+                            cfg.callback.call(this, e);
+                        }
+                    });
+                }
+                return this;
+            } else if (typeof a == 'string' && $.fn.attrchange.hasOwnProperty('extensions') &&
+                    $.fn.attrchange['extensions'].hasOwnProperty(a)) { //extensions/options
+                return $.fn.attrchange['extensions'][a].call(this, b);
+            }
+        }
+    })(jQuery);
+</script>
+<script type="text/javascript">
+    window.onload = function () {
+        $('body').css('pointer-events','none');
+        $('body').on('touchmove', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+
+
+        var iPhone = /iPhone/i.test(navigator.userAgent);
+        var iPhone4 = (ig.ua.iPhone && ig.ua.pixelRatio == 2);
+        var iPad = /iPad/i.test(navigator.userAgent);
+        var android = /android/i.test(navigator.userAgent);
+        var windowsPhone = /windows phone/i.test(navigator.userAgent);
+        var iOS = iPhone || iPad || iPhone4;
+        var wp = windowsPhone;
+        var mobile = iOS || android || wp;
+        var desktopQueries = $("<link rel='stylesheet' type='text/css' href='private/styles/css/gui.css'>");
+        $("head").append(desktopQueries);
+        var gameStyleCss = $("<link rel='stylesheet' type='text/css' href='private/styles/css/game.css'>");
+        if (gameStyleCss) {
+            $("head").append(gameStyleCss);
+        }
+        $.mobile.ignoreContentEnabled = true;
+        var launcher = find.byType(Launcher);
+        launcher.launch();
+    };
+
+</script>
+</body>
+</html>

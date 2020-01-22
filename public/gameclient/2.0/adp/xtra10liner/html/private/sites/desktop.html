@@ -1,0 +1,66 @@
+<div class="clock-area">
+</div>
+<div id="respGaming-area" class="message-area">
+</div>
+<div id="message-area" class="message-area">
+    ***TEXT***
+</div>
+
+<div id='controlSwitchButton' class='desktopGameMenu-button desktopGameMenu-switch-controls desktopGameMenu-button-round desktopGameMenu-button-vertical-centered'></div>
+<div id="paytableButton" class="desktopGameMenu-button desktopGameMenu-button-round desktopGameMenu-paytable desktopGameMenu-button-vertical-centered"></div>
+<div id="helpButton" class="desktopGameMenu-button desktopGameMenu-button-round desktopGameMenu-help desktopGameMenu-button-vertical-centered"></div>
+<div id="fullScreenWrapper" class="desktopGameMenu-button desktopGameMenu-button-round desktopGameMenu-fullscreen desktopGameMenu-button-vertical-centered"></div>
+<div id="soundWrapper" class="desktopGameMenu-button desktopGameMenu-button-round desktopGameMenu-settings desktopGameMenu-button-vertical-centered"></div>
+<div id="turboSpinButton" class="desktopGameMenu-button desktopGameMenu-button-round desktopGameMenu-turboSpinInactive desktopGameMenu-button-vertical-centered"></div>
+<div id="close-game-btn" class="desktopGameMenu-button desktopGameMenu-button-round desktopGameMenu-close desktopGameMenu-button-vertical-centered"></div>
+<div id="add-close-help-btn" class="desktopGameMenu-button desktopGameMenu-button-round desktopGameMenu-close desktopGameMenu-button-vertical-centered"></div>
+<div id="add-close-paytable-btn" class="desktopGameMenu-button desktopGameMenu-button-round desktopGameMenu-close desktopGameMenu-button-vertical-centered"></div>
+<div id="gameMenu" class="desktopGameMenu"></div>
+<div id="volumeWrapper" data-enhance="false"><input type="range" id="volumeSlider" data-orientation="vertical" min="0" max="100" step="1" value="100" /></div>
+
+<div id="mobile-menu-container" class="menu menu-hidden menu-animate-reveal">
+    <div id="mobileMenuExpander" class="desktopGameMenu-button desktopGameMenu-button-round desktopGameMenu-mobilemenu desktopGameMenu-mobilemenu-left desktopGameMenu-mobilemenu-animate-rotate desktopGameMenu-button-vertical-centered"></div>
+    <div id="mobile-menu-buttons" >
+
+    </div>
+</div>
+
+<div class="selector-dark-background" style="display: none">
+
+</div>
+<div data-role="footer" id="depotDisplay" class="depot-desktop" data-position="fixed" data-fullscreen="true"
+     data-tap-toggle="false" data-tap-toggle-blacklist=".do-not-toggle-fixed-toolbar">
+    <div class="betting-controls">
+        <div id="maxBetContainer">
+            <div id="maxBetButton" class="button-desktop button-desktop-black button-desktop-idle button-desktop-max-bet-button" ><p  data-uppercase="true"></p></div>
+        </div>
+        <div id="lineSelectorContainer">
+            <div id="lineSelectorButton" class='button-desktop button-desktop-black button-desktop-idle button-desktop-lines-button'><p id="selectedLineAmount"></p></div>
+        </div>
+        <div id="coinSelectorContainer">
+            <div id="coinSelectorButton" class='button-desktop button-desktop-black button-desktop-idle button-desktop-bet-button'><p id="selectedBetAmount"></p><p id="perLine"></p></div>
+        </div>
+    </div>
+    <div class="info-panel">
+        <ul>
+            <li class="win-panel">
+                <div>
+                    <p id="win-meter">0.00</p>
+                </div>
+            </li>
+            <li class="betting-panel">
+                <div>
+                    <p id="depot-meter">0.00</p>
+                    <p id="limit-meter" style="display:none">0.00</p>
+                    <p id="stake-meter">0.00</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="button-bar">
+        <div id="autoSpinSelectorContainer" class="button-desktop-autospins-button">
+            <div id="autospinSelectorButton" class="button-desktop button-desktop-autospinamount-button button-desktop-idle" style="display: table"><div id="selectedAutospinAmount" class="icon-btn-caption-centered">0</div></div>
+        </div>
+    </div>
+
+</div>

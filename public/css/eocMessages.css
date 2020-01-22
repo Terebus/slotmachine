@@ -1,0 +1,472 @@
+@-ms-viewport {
+    width: device-width;
+}
+
+#eocMessage-dialog {
+    margin: 0 auto;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 70%;
+    top: 20%;
+    z-index: 9999;
+    position: absolute;
+    display: none;
+    border: 2px solid black;
+    margin-left: 15%;
+    background-color: white;
+}
+
+#eocMessage-dialog button#eocMessageOk {
+    background-color: #c2c2c2;
+    border-radius: 3px;
+    color: #fff;
+    border-width: 0;
+    width: 6em;
+    height: 2em;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+/* Styles for the Growl messages via Gritter plugin */
+/* the norm */
+#gritter-notice-wrapper {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 201px;
+    z-index: 10000002;
+}
+
+#gritter-notice-wrapper.top-left {
+    left: 20px;
+    right: auto;
+}
+
+#gritter-notice-wrapper.bottom-right {
+    top: auto;
+    left: auto;
+    bottom: 20px;
+    right: 20px;
+}
+
+#gritter-notice-wrapper.bottom-left {
+    top: auto;
+    right: auto;
+    bottom: 20px;
+    left: 20px;
+}
+
+.gritter-item-wrapper {
+    position: relative;
+    margin: 0 0 10px 0;
+    background: url('../images/ie-spacer.gif'); /* ie7/8 fix */
+}
+
+.gritter-top {
+    background: url(../images/gritter.png) no-repeat left -30px;
+    height: 10px;
+}
+
+.hover .gritter-top {
+    background-position: right -30px;
+}
+
+.gritter-bottom {
+    background: url(../images/gritter.png) no-repeat left bottom;
+    height: 8px;
+    margin: 0;
+}
+
+.hover .gritter-bottom {
+    background-position: bottom right;
+}
+
+.gritter-item {
+    display: block;
+    background: url(../images/gritter.png) no-repeat left -40px;
+    color: #eee;
+    padding: 2px 11px 8px 11px;
+    font-size: 11px;
+    font-family: verdana;
+}
+
+.hover .gritter-item {
+    background-position: right -40px;
+}
+
+.gritter-item p {
+    padding: 0;
+    margin: 0;
+    word-wrap: break-word;
+}
+
+.gritter-close {
+    display: none;
+    position: absolute;
+    top: 5px;
+    left: 3px;
+    background: url(../images/gritter.png) no-repeat left top;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.gritter-title {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 0 7px 0;
+    display: block;
+    text-shadow: 1px 1px 0 #000; /* Not supported by IE :( */
+}
+
+.gritter-image {
+    width: 48px;
+    height: 48px;
+    float: left;
+}
+
+.gritter-with-image,
+.gritter-without-image {
+    padding: 0;
+}
+
+.gritter-with-image {
+    width: 220px;
+    float: right;
+}
+
+/* for the light (white) version of the gritter notice */
+.gritter-light .gritter-item,
+.gritter-light .gritter-bottom,
+.gritter-light .gritter-top,
+.gritter-light .gritter-close {
+    background-image: url(../images/gritter-light.png);
+    color: #222;
+}
+
+.gritter-light .gritter-title {
+    text-shadow: none;
+}
+
+/* Styles for Impromptu plugin */
+.jqifade {
+    position: absolute;
+    background-color: #aaaaaa;
+}
+
+div.jqi {
+    width: 400px;
+    font-family: MyriadPro-Regular, Verdana, Geneva, Arial, Helvetica, sans-serif;
+    position: absolute;
+    background-color: #313131;
+    font-size: 11px;
+    text-align: left;
+    border: solid 2px #46992d;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    padding: 7px;
+    color: #FFFFFF;
+}
+
+div.jqi .jqicontainer {
+    font-weight: bold;
+}
+
+div.jqi .jqiclose {
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    width: 18px;
+    cursor: default;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+div.jqi .jqimessage {
+    padding: 10px;
+    line-height: 20px;
+    color: #444444;
+}
+
+div.jqi .jqibuttons {
+    text-align: right;
+    padding: 5px 0 5px 0;
+    border: solid 1px #313131;
+    background-color: #313131;
+}
+
+div.jqi button {
+    padding: 3px 10px;
+    margin: 0 10px;
+    background-color: #313131;
+    border: solid 1px #FFFFFF;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+div.jqi button:hover {
+    background-color: #313131;
+}
+
+div.jqi button.jqidefaultbutton {
+    background-color: #313131;
+}
+
+.jqiwarning .jqi .jqibuttons {
+    background-color: #313131;
+}
+
+.jqi .jqiarrow {
+    position: absolute;
+    height: 0;
+    width: 0;
+    line-height: 0;
+    font-size: 0;
+    border: solid 10px transparent;
+}
+
+.jqi .jqiarrowtl {
+    left: 10px;
+    top: -20px;
+    border-bottom-color: #ffffff;
+}
+
+.jqi .jqiarrowtc {
+    left: 50%;
+    top: -20px;
+    border-bottom-color: #ffffff;
+    margin-left: -10px;
+}
+
+.jqi .jqiarrowtr {
+    right: 10px;
+    top: -20px;
+    border-bottom-color: #ffffff;
+}
+
+.jqi .jqiarrowbl {
+    left: 10px;
+    bottom: -20px;
+    border-top-color: #ffffff;
+}
+
+.jqi .jqiarrowbc {
+    left: 50%;
+    bottom: -20px;
+    border-top-color: #ffffff;
+    margin-left: -10px;
+}
+
+.jqi .jqiarrowbr {
+    right: 10px;
+    bottom: -20px;
+    border-top-color: #ffffff;
+}
+
+.jqi .jqiarrowlt {
+    left: -20px;
+    top: 10px;
+    border-right-color: #ffffff;
+}
+
+.jqi .jqiarrowlm {
+    left: -20px;
+    top: 50%;
+    border-right-color: #ffffff;
+    margin-top: -10px;
+}
+
+.jqi .jqiarrowlb {
+    left: -20px;
+    bottom: 10px;
+    border-right-color: #ffffff;
+}
+
+.jqi .jqiarrowrt {
+    right: -20px;
+    top: 10px;
+    border-left-color: #ffffff;
+}
+
+.jqi .jqiarrowrm {
+    right: -20px;
+    top: 50%;
+    border-left-color: #ffffff;
+    margin-top: -10px;
+}
+
+.jqi .jqiarrowrb {
+    right: -20px;
+    bottom: 10px;
+    border-left-color: #ffffff;
+}
+
+div.jqi .lead {
+    font-size: 20px;
+    margin-left: 10px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+div.jqi input {
+    margin-left: 20px;
+    background-color: #313131;
+    border-color: #8f9093;
+    border-radius: 5px;
+    color: white;
+    border-style: solid;
+    border-width: 1px;
+    text-align: right;
+}
+
+div.jqi select {
+    background-color: #313131;
+    border-color: #8f9093 !important;
+    border-radius: 5px;
+    color: white;
+}
+
+div.jqi .jqimessage {
+    padding: 10px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+div.jqi a {
+    color: #46992d;
+}
+
+div.jqi a:hover {
+    color: #bbbbbb;
+}
+
+div.jqi #slotConfigForm a {
+    font-size: 15px;
+    color: #46992d;
+    text-decoration: none;
+}
+
+div.jqi #slotConfigForm a:hover {
+    color: #bbbbbb;
+}
+
+div.jqi #slotConfigForm .first {
+    width: 150px;
+}
+
+@media (max-width: 500px) {
+
+    div.jqi {
+        width: 95% !important;
+        left: 0px !important;
+        margin-left: 0px !important;
+        font-size: 15px;
+        top: 5px !important;
+    }
+
+    div.jqi .lead {
+        font-size: 25px;
+    }
+
+    div.jqi #slotConfigForm .first {
+        width: 100px
+    }
+
+    div.jqi input {
+        margin: 0px;
+        padding: 5px;
+        width: 75px;
+    }
+
+    div.jqi select {
+        padding: 2px;
+        font-size: 15px;
+    }
+
+    div.jqi #slotConfigForm a {
+        font-size: 20px;
+    }
+
+    div.jqi button {
+        padding: 10px 25px;
+        font-size: 15px;
+    }
+
+    div.jqi #slotConfigForm .first {
+        padding: 5px;
+    }
+
+}
+
+@media (max-width: 820px) {
+
+    div.jqi {
+        width: 95% !important;
+        left: 0px !important;
+        margin-left: 0px !important;
+        font-size: 15px;
+        top: 0px !important;
+    }
+
+    div.jqi .jqimessage {
+        line-height: 15px;
+    }
+}
+
+/* FreeSpin Style */
+
+div.jqi .freespin {
+    text-align: center;
+}
+
+div.jqi .freespin img {
+    max-height: 25vh;
+    max-width: 31vh;
+}
+
+div.jqi .freespin .title {
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    line-height: normal;
+}
+
+div.jqi .freespin .text {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+div.jqi .freespin font {
+    color: #4B992D;
+}
+
+@media (max-width: 650px) {
+
+    div.jqi .freespin .title {
+        font-size: 23px;
+    }
+
+    div.jqi .freespin .text {
+        font-size: 12px;
+    }
+
+    div.jqi .freespin img {
+        max-height: 25vh;
+        max-width: 25vh;
+    }
+
+    div.jqi {
+        width: 94% !important;
+        left: 0px !important;
+        margin-left: 0px !important;
+        font-size: 15px;
+        top: 0px !important;
+    }
+}
