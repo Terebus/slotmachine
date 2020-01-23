@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (Illuminate\Http\Request $request) {
+    if( empty($request->toArray())){
+        return redirect('/?gameKey=adp_xtra10liner&gameMode=fun&token=&locale=en_GB&lang=en&demoPlay=1&casino=whow-fm');
+    }
     return view('home');
 });
 
